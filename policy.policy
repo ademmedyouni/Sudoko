@@ -1,0 +1,16 @@
+grant {
+    // Permet toutes les opérations RMI
+    permission java.net.SocketPermission "*:1024-", "connect,accept,resolve";
+    permission java.net.SocketPermission "localhost:1024-", "connect,accept,resolve";
+
+    // Permet de lire les classes distantes si tu utilises un codebase
+    permission java.io.FilePermission "<<ALL FILES>>", "read";
+
+    // Permet de créer des threads, nécessaire pour ExecutorService
+    permission java.lang.RuntimePermission "modifyThread";
+    permission java.lang.RuntimePermission "modifyThreadGroup";
+
+    // Pour RMI registry
+    permission java.rmi.RMIPermission "useActivationSystem";
+    permission java.security.AllPermission;
+};
